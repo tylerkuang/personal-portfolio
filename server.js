@@ -13,7 +13,7 @@ app.use(express.json());
 app.use("/", router);
 
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log("Server running on port 5000"));
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
 // console.log(process.env.EMAIL_PASS);
 
@@ -60,4 +60,4 @@ router.post("/contact", (req, res) => {
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, '../build', 'index.html'));
-})
+});
