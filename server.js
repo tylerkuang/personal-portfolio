@@ -7,7 +7,7 @@ const path = require('path');
 
 // server used to send emails
 const app = express();
-const buildPath = path.resolve(__dirname, '/build');
+const buildPath = path.resolve(__dirname, './build');
 console.log(`Serving static files from ${buildPath}`);
 app.use(express.static(buildPath));
 app.use(cors());
@@ -61,7 +61,7 @@ router.post("/contact", (req, res) => {
 });
 
 app.get('*', (req, res) => {
-  const indexPath = path.resolve(__dirname, '/build', 'index.html');
+  const indexPath = path.resolve(__dirname, './build', 'index.html');
   console.log(`Serving index.html from ${indexPath}`);
   res.sendFile(indexPath);
 });
