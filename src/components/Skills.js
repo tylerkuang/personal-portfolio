@@ -1,5 +1,5 @@
-import meter1 from "../assets/img/meter1.svg";
-import meter2 from "../assets/img/meter2.svg";
+import meter1 from "../assets/img/meter.png";
+import meter2 from "../assets/img/meter2.png";
 import meter3 from "../assets/img/meter3.svg";
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
@@ -35,24 +35,60 @@ export const Skills = () => {
                 <div className="row">
                     <div className="col-12">
                         <div className="skill-bx wow zoomIn">
-                            <h2>Skills</h2>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p>
+                            <h2>Skills/Proficiencies</h2>
+                            {/* <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p> */}
                             <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                                 <div className="item">
                                     <img src={meter1} alt="Image" />
-                                    <h5>Web Development</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter2} alt="Image" />
-                                    <h5>Brand Identity</h5>
-                                </div>
-                                <div className="item">
-                                    <img src={meter3} alt="Image" />
-                                    <h5>Logo Design</h5>
+                                    <h5>RESTful API Development</h5>
                                 </div>
                                 <div className="item">
                                     <img src={meter1} alt="Image" />
-                                    <h5>Web Design</h5>
+                                    <h5>Git/Github for Version Control</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>MySQL for Database Management</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>CI/CD Pipelines</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Agile Methodologies (Scrum, Kanban)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>ML Frameworks (SKLearn, TensorFlow, Keras, PyTorch)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Data Science Libraries (Pandas, Matplotlib, Seaborn)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Supervised & Unsupervised Learning</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Neural Networks & Deep Learning</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Natural Language Processing (NLP)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Large Language Models (LLMs)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Data Preprocessing (Data Cleaning, Feature Engineering, Data Augmentation)</h5>
+                                </div>
+                                <div className="item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Model Evaluation & Validation Metrics</h5>
                                 </div>
                             </Carousel>
                         </div>

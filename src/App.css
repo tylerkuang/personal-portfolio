@@ -323,6 +323,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .skill h2 {
 	font-size: 45px;
 	font-weight: 700;
+  margin-bottom: 3%;
 }
 .skill p {
     color: #B8B8B8;
@@ -427,6 +428,17 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   border-radius: 30px;
   overflow: hidden;
   margin-bottom: 24px;
+  width: 100%;
+  height: 306px;
+  max-width: 416px;
+}
+.proj-imgbx img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.proj-imgbx img.left-centered {
+  object-position: left center;
 }
 .proj-imgbx::before {
   content: "";

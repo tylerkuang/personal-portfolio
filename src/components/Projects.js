@@ -1,8 +1,21 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/project-img1.png";
-import projImg2 from "../assets/img/project-img2.png";
-import projImg3 from "../assets/img/project-img3.png";
+import projImg1 from "../assets/img/wages.webp";
+import projImg2 from "../assets/img/dayplanner.png";
+import projImg3 from "../assets/img/website.png";
+import teamsImg from "../assets/img/teams.png";
+import websiteImg from "../assets/img/website.png";
+import gptImg from "../assets/img/chatgpt.jpeg";
+import ragImg from "../assets/img/rag.png";
+import vectordbImg from "../assets/img/vectordb.png";
+import textSummImg from "../assets/img/text-summarization.png";
+import TextGenImg from "../assets/img/textGen-edit.png"
+import sentImg from "../assets/img/sent.webp";
+import p2pImg from "../assets/img/p2p.webp";
+import sepImg from "../assets/img/25th-hour.png";
+import stockImg from "../assets/img/stock.jpg";
+import bstImg from "../assets/img/bst-edit.png";
+import skincareImg from "../assets/img/skincare.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
@@ -14,7 +27,7 @@ export const Projects = () => {
       title: "Wages Program Enhancement",
       description: "",
       languages: "Languages: Javascript",
-      frameworks: "Frameworks: Node.js",
+      frameworks: "Frameworks: React, Node.js",
       imgUrl: projImg1,
     },
     {
@@ -29,14 +42,21 @@ export const Projects = () => {
       description: "",
       languages: "Languages: Java, Javascript, SQL",
       frameworks: "Frameworks: React, SpringBoot, MySQL",
-      imgUrl: projImg3,
+      imgUrl: teamsImg,
     },
     {
       title: "Personal Website",
       description: "",
       languages: "Languages: Javascript",
-      frameworks: "Frameworks: React",
-      imgUrl: projImg1,
+      frameworks: "Frameworks: React, Node.js",
+      imgUrl: websiteImg,
+    },
+    {
+      title: "Skincare Product Finder",
+      description: "",
+      languages: "Languages: Python, Javascript",
+      frameworks: "Frameworks/Technologies: Django, React, Node.js, Selenium",
+      imgUrl: skincareImg,
     },
   ];
 
@@ -45,43 +65,43 @@ export const Projects = () => {
       title: "Fine-Tune GPT",
       description: "",
       languages: "Languages: Python",
-      frameworks: "Frameworks: Keras",
-      imgUrl: projImg1,
+      frameworks: "Frameworks/Technologies: Keras, ChatGPT API",
+      imgUrl: gptImg,
     },
     {
       title: "Retrieval Augmented Generation",
       description: "",
       languages: "Languages: Python",
       frameworks: "Frameworks: Keras",
-      imgUrl: projImg2,
+      imgUrl: ragImg,
     },
     {
       title: "Vector Database",
-      description: "Design & Development",
+      description: "",
       languages: "Languages: Python",
       frameworks: "Frameworks: Keras",
-      imgUrl: projImg3,
+      imgUrl: vectordbImg,
     },
     {
       title: "Sequence-to-Sequence Text Summarization",
       description: "",
       languages: "Languages: Python",
-      frameworks: "Tensorflow, PyTorch",
-      imgUrl: projImg1,
+      frameworks: "Frameworks: Tensorflow, PyTorch",
+      imgUrl: textSummImg,
     },
     {
       title: "Sequence Modeling for Text Generation",
       description: "",
       languages: "Languages: Python",
       frameworks: "Frameworks: Keras",
-      imgUrl: projImg2,
+      imgUrl: TextGenImg,
     },
     {
       title: "Text Classification for Sentiment Analysis",
       description: "",
       languages: "Languages: Python",
       frameworks: "Frameworks: Sci-kit Learn",
-      imgUrl: projImg3,
+      imgUrl: sentImg,
     },
   ];
 
@@ -91,28 +111,28 @@ export const Projects = () => {
       description: "",
       languages: "Languages: C++",
       frameworks: "",
-      imgUrl: projImg1,
+      imgUrl: p2pImg,
     },
     {
       title: "25th Hour Startup",
       description: "Design & Development",
       languages: "",
       frameworks: "",
-      imgUrl: projImg2,
+      imgUrl: sepImg,
     },
     {
         title: "Mock Stock Market Day Exchange",
         description: "",
         languages: "Languages: Java",
         frameworks: "",
-        imgUrl: projImg1,
+        imgUrl: stockImg,
       },
       {
         title: "Binary Search Tree Map Implementation",
         description: "",
         languages: "Languages: C++",
         frameworks: "",
-        imgUrl: projImg2,
+        imgUrl: bstImg,
       },
   ];
 
@@ -161,7 +181,7 @@ export const Projects = () => {
                                     <ProjectCard
                                         key={index}
                                         {...project}
-                                        />
+                                        isLeftCentered={index === 4}/>
                                     )
                                 })
                             }
