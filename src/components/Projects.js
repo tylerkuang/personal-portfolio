@@ -1,8 +1,7 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import projImg1 from "../assets/img/wages.webp";
-import projImg2 from "../assets/img/dayplanner.png";
-import projImg3 from "../assets/img/website.png";
+import wagesImg from "../assets/img/wages.webp";
+import dayplannerImg from "../assets/img/dayplanner.png";
 import teamsImg from "../assets/img/teams.png";
 import websiteImg from "../assets/img/website.png";
 import gptImg from "../assets/img/chatgpt.jpeg";
@@ -28,14 +27,14 @@ export const Projects = () => {
       description: "",
       languages: "Languages: Javascript",
       frameworks: "Frameworks: React, Node.js",
-      imgUrl: projImg1,
+      imgUrl: wagesImg,
     },
     {
       title: "Day Planner Mobile App",
       description: "",
       languages: "Languages: Java",
       frameworks: "Frameworks/Technologies: Android Studio, Firebase, JUnit, Espresso",
-      imgUrl: projImg2,
+      imgUrl: dayplannerImg,
     },
     {
       title: "Feedback and Rating Platform for Teams",
