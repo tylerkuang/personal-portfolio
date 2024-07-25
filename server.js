@@ -5,6 +5,9 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 const path = require('path');
 
+// Visitor Counter 
+let visitCount = 0;
+
 // server used to send emails
 const app = express();
 const buildPath = path.resolve(__dirname, './build');
@@ -35,6 +38,7 @@ contactEmail.verify((error) => {
   }
 });
 
+// handle post requests for contact/message requests
 router.post("/contact", (req, res) => {
   const name = req.body.firstName + " " + req.body.lastName;
   const email = req.body.email;
@@ -60,8 +64,21 @@ router.post("/contact", (req, res) => {
   });
 });
 
+// handle post requests for visitor tracking
+router.post('/api/track-visit', (req, res) => {
+  const { path } = req.body;
+  // console.log('received post request at track visit route, path: ' + path);
+
+  if (path === '/') {
+    visitCount += 1;
+    console.log(`New visitor! Number of visitors since last deployment: ${visitCount}`)
+  }
+
+  res.sendStatus(200);
+});
+
 app.get('*', (req, res) => {
   const indexPath = path.resolve(__dirname, './build', 'index.html');
-  console.log(`Serving index.html from ${indexPath}`);
+  // console.log(`Serving index.html from ${indexPath}`);
   res.sendFile(indexPath);
 });
