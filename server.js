@@ -7,6 +7,7 @@ const path = require('path');
 
 // Visitor Counter 
 let visitCount = 0;
+let gitCount = 0;
 
 // server used to send emails
 const app = express();
@@ -72,6 +73,10 @@ router.post('/api/track-visit', (req, res) => {
   if (path === '/') {
     visitCount += 1;
     console.log(`New visitor! Number of visitors since last deployment: ${visitCount}`)
+  }
+  else if (path === '/github') {
+    gitCount += 1;
+    console.log(`Visitor viewed Github! Number of github visitors since last deployment: ${gitCount}`)
   }
 
   res.sendStatus(200);

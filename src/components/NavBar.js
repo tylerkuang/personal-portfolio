@@ -30,6 +30,26 @@ export const NavBar = () => {
         setActiveLink(value);
     }
 
+    const handleGitClick = async (e) => {
+        // Prevent the default action to allow time to log the click
+        e.preventDefault();
+    
+        // Log the click to your server
+        await fetch('/api/track-visit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ path: '/github' }),
+        });
+    
+        // Allow time for the fetch to complete before opening the link
+        setTimeout(() => {
+            // Redirect to the external link in a new tab
+            window.open('https://github.com/tylerkuang', '_blank', 'noopener,noreferrer');
+        }, 100); // Delay to ensure fetch completes
+    };
+
     return (
         <Navbar expand="lg" className={scrolled ? "scrolled": ""}>
             <Container>
@@ -49,7 +69,7 @@ export const NavBar = () => {
                     <div className="social-icon">
                         <a href="https://linkedin.com/in/tyler-kuang/" target="_blank"><img src={linkedinIcon} alt="" /></a>
                         <a href="https://facebook.com/tyler.kuang.7" target="_blank"><img src={facebookIcon} alt="" /></a>
-                        <a href="https://github.com/tylerkuang" target="_blank"><img src={githubIcon} alt="" /></a>
+                        <a href="https://github.com/tylerkuang" onClick={handleGitClick} target="_blank" rel="noopener noreferrer"><img src={githubIcon} alt="" /></a>
                     </div>
                     <button className="vvd" onClick={() => window.location.href='#connect'}><span>Let's Connect</span></button>
                 </span>
