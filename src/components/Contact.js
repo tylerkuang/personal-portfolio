@@ -25,6 +25,15 @@ export const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Check if all fields are filled out
+    const isValid = Object.values(formDetails).every(value => value.trim() !== "");
+  
+    if (!isValid) {
+      setStatus({ success: false, message: 'Please fill out all fields.' });
+      return; 
+    }
+
     setButtonText("Sending...");
     let response = await fetch("/contact", {
       method: "POST",
