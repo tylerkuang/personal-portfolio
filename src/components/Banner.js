@@ -28,6 +28,8 @@ export const Banner = () => {
 
         if (isDeleting) {
             setDelta(prevDelta => prevDelta /2)
+        } else {
+            setDelta(250 - Math.random() * 50);
         }
 
         if (!isDeleting && updatedText === fullText) {
@@ -47,8 +49,9 @@ export const Banner = () => {
                 <Row className="align-items-center">
                     <Col xs={12} md={6} xl={7}>
                         <span className="tagline">Welcome to my Portfolio</span>
-                        <h1>{`Hi I'm Tyler,`}<span className="wrap">{text}</span></h1>
-                        <p>Hey there, I'm a recent graduate from the University of Southern California, where I majored in Computer Science and Business Administration while minoring in Artificial Intelligence Applications. I love building, and I am passionate about machine learning applications. Currently, I am working on passion projects while I search for an internship or new grad/entry level job in software engineering. Outside of work, I enjoy all things sports (especially football, basketball, and baseball), playing video games, and reading fantasy & sci-fi. Whether it's about professional opportunities, fantasy football, or anything in between, I'd love to chat. Let's connect!</p>
+                        <h1>{`Hi I'm Tyler,`}<br></br><span className="wrap">&nbsp;{text}</span></h1>
+                        <p>Hey there, I'm a recent graduate from the University of Southern California, where I majored in Computer Science and Business Administration while minoring in Artificial Intelligence Applications. I love building things, so I built this portfolio to showcase a little more about who I am and how I got here. </p>
+                        <p>I began my first few years in college solely as a Business major. By my Junior year, I realized this wasn't something I was passionate about. I wanted to do something more technical, where my personal impact could be better felt and measured. I tried out coding, fell in love with it, and haven't looked back.</p>
                         <button onClick={() => window.location.href='#connect'}>Let's connect <ArrowRightCircle size={25} /></button>
                     </Col>
                     <Col xs={12} md={6} xl={5}>

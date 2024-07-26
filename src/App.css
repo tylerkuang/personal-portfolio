@@ -261,8 +261,19 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .banner .wrap {
-  display: block;
+  display: inline;
+  /* border-right: 6px solid; */
+  /* animation: blink 1.05s step-end infinite; */
 }
+
+/* @keyframes blink {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: white;
+  }
+} */
 
 .banner p {
   color: #B8B8B8;
@@ -330,7 +341,10 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
     font-size: 18px;
     letter-spacing: 0.8px;
     line-height: 1.5em;
-    margin: 14px 0 75px 0;
+    /* margin: 14px 0 75px 0; */
+}
+.skill .bottom {
+  margin-bottom: 3%;
 }
 .skill .skill-slider {
   width: 80%;

@@ -36,7 +36,8 @@ export const Skills = () => {
                     <div className="col-12">
                         <div className="skill-bx wow zoomIn">
                             <h2>Skills/Proficiencies</h2>
-                            {/* <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.<br></br> Lorem Ipsum has been the industry's standard dummy text.</p> */}
+                            <p className="top">Making a late major switch to a difficult field, I had to be a quick and hungry learner. I would not have succeeded this transition had I not been able to quickly learn foreign concepts and technologies. I am confident that this intangible skill will similarly enable me to succeed in any unfamiliar environment going forward.</p>
+                            <p className="bottom">Below, I've listed some of the concepts and technologies I've become proficient in over the past couple years.</p>
                             <Carousel responsive={responsive} infinite={true} className="owl-carousel owl-theme skill-slider">
                                 <div className="item">
                                     <img src={meter1} alt="Image" />
