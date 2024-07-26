@@ -346,6 +346,42 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .skill .bottom {
   margin-bottom: 3%;
 }
+.skill .grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px; /* Space between grid items */
+  padding: 20px 0; /* Space around grid container */
+}
+
+.skill .grid-item {
+  background-color: #6a1b9a; /* Purple background color */
+  padding: 20px;
+  border-radius: 8px; /* Rounded corners */
+  text-align: center; /* Center text alignment */
+  transition: transform 0.3s ease; /* Smooth transform effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for a slight 3D effect */
+  color: #ffffff; /* White text color */
+}
+
+.skill .grid-item:hover {
+  transform: translateY(-5px); /* Lift item on hover */
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Slightly bigger shadow on hover */
+  background-color: #7b1fa2; /* Darker purple on hover */
+}
+
+.skill .grid-item img {
+  width: 80px; /* Image width */
+  height: 80px; /* Image height */
+  margin-bottom: 15px; /* Space between image and title */
+}
+
+.skill .grid-item h5 {
+  margin-top: 10px;
+  font-size: 18px; /* Title font size */
+  font-weight: 500; /* Title font weight */
+  color: #B8B8B8; /* Title text color */
+}
+
 .skill .skill-slider {
   width: 80%;
   margin: 0 auto;

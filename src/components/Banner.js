@@ -29,7 +29,7 @@ export const Banner = () => {
         if (isDeleting) {
             setDelta(prevDelta => prevDelta /2)
         } else {
-            setDelta(250 - Math.random() * 50);
+            setDelta(200 - Math.random() * 50);
         }
 
         if (!isDeleting && updatedText === fullText) {
