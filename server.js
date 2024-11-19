@@ -4,6 +4,7 @@ const router = express.Router();
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const path = require('path');
+const { google } = require('googleapis');
 
 // Visitor Counter 
 let visitCount = 0;
@@ -23,24 +24,62 @@ app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
 // console.log(process.env.EMAIL_PASS);
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
-});
+let contactEmail;
 
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
+const setupTransport = async () => {
+  const OAuth2 = google.auth.OAuth2;
+
+  const oauth2Client = new OAuth2(
+    process.env.CLIENT_ID,
+    process.env.CLIENT_SECRET,
+    "https://developers.google.com/oauthplayground"
+  );
+
+  // set the refresh token
+  oauth2Client.setCredentials({
+    refresh_token: process.env.REFRESH_TOKEN
+  });
+
+  // generate access token
+  const accessToken = await oauth2Client.getAccessToken();
+
+  // configure nodemailer
+  contactEmail = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      type: 'OAuth2',
+      user: process.env.EMAIL_USER,
+      clientId: process.env.CLIENT_ID,
+      clientSecret: process.env.CLIENT_SECRET,
+      refreshToken: process.env.REFRESH_TOKEN,
+      accessToken: accessToken.token,
+      // pass: process.env.EMAIL_PASS
+    },
+  });
+
+  contactEmail.verify((error) => {
+    if (error) {
+      console.log(error);
+    } else {
+      console.log("Ready to Send");
+    }
+  });
+}
+
+setupTransport().catch(console.error);
+
+
+// Middleware to ensure contactEmail is initialized
+const ensureEmailServiceReady = (req, res, next) => {
+  if (!contactEmail) {
+    console.log("Email service is not ready yet");
+    return res.status(500).json({ error: "Email service is not initialized yet. Please try again later." });
   }
-});
+  next();
+};
 
 // handle post requests for contact/message requests
-router.post("/contact", (req, res) => {
+router.post("/contact", ensureEmailServiceReady, (req, res) => {
   const name = req.body.firstName + " " + req.body.lastName;
   const email = req.body.email;
   const message = req.body.message;

@@ -1,6 +1,6 @@
 import { Container, Row, Col, Tab, Nav } from "react-bootstrap";
 import { ProjectCard } from "./ProjectCard";
-import wagesImg from "../assets/img/wages.webp";
+import wagesImg from "../assets/img/wages.png";
 import dayplannerImg from "../assets/img/dayplanner.png";
 import teamsImg from "../assets/img/teams.png";
 import websiteImg from "../assets/img/website.png";
@@ -40,7 +40,7 @@ export const Projects = () => {
       title: "Feedback and Rating Platform for Teams",
       description: "",
       languages: "Languages: Java, Javascript, SQL",
-      frameworks: "Frameworks: React, SpringBoot, MySQL, Google Sign-in API",
+      frameworks: "Frameworks/Technologies: React, SpringBoot, MySQL, Google Authentication API",
       imgUrl: teamsImg,
     },
     {
