@@ -7,12 +7,16 @@ const path = require('path');
 const { google } = require('googleapis');
 
 const axios = require('axios');
-try {
-  const response = await axios.get('https://www.googleapis.com/oauth2/v3/tokeninfo');
-  console.log('Google OAuth2 endpoint reachable:', response.data);
-} catch (error) {
-  console.log('Network issue when accessing Google OAuth2:', error);
-}
+const checkGoogleOAuthStatus = async () => {
+  try {
+    const response = await axios.get('https://www.googleapis.com/oauth2/v3/tokeninfo');
+    console.log('Google OAuth2 endpoint reachable:', response.data);
+  } catch (error) {
+    console.log('Network issue when accessing Google OAuth2:', error);
+  }
+};
+
+checkGoogleOAuthStatus();
 
 // Visitor Counter 
 let visitCount = 0;
