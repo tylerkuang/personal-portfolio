@@ -46,6 +46,7 @@ const setupTransport = async () => {
     process.env.CLIENT_SECRET,
     "https://developers.google.com/oauthplayground"
   );
+  console.log("Email:", process.env.EMAIL_USER ? 'Present' : 'Missing')
   console.log("REFRESH_TOKEN:", process.env.REFRESH_TOKEN ? 'Present' : 'Missing');
 
   // set the refresh token
