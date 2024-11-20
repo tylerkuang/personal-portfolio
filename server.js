@@ -44,15 +44,15 @@ const setupTransport = async () => {
     refresh_token: process.env.REFRESH_TOKEN
   });
   console.log("Credentials properly set.")
+
   // generate access token
+  let accessToken;
   try {
-    const accessToken = await oauth2Client.getAccessToken();
+    accessToken = await oauth2Client.getAccessToken();
   } catch (error) {
     console.error("Access Token Error:", error.response?.data || error.message);
   }
   
-  // const accessToken = await oauth2Client.getAccessToken();
-
   // configure nodemailer
   contactEmail = nodemailer.createTransport({
     service: 'gmail',
