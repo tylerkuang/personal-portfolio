@@ -6,6 +6,14 @@ const nodemailer = require("nodemailer");
 const path = require('path');
 const { google } = require('googleapis');
 
+const axios = require('axios');
+try {
+  const response = await axios.get('https://www.googleapis.com/oauth2/v3/tokeninfo');
+  console.log('Google OAuth2 endpoint reachable:', response.data);
+} catch (error) {
+  console.log('Network issue when accessing Google OAuth2:', error);
+}
+
 // Visitor Counter 
 let visitCount = 0;
 let gitCount = 0;
@@ -34,14 +42,16 @@ const setupTransport = async () => {
     process.env.CLIENT_SECRET,
     "https://developers.google.com/oauthplayground"
   );
+  console.log("REFRESH_TOKEN:", process.env.REFRESH_TOKEN ? 'Present' : 'Missing');
 
   // set the refresh token
   oauth2Client.setCredentials({
     refresh_token: process.env.REFRESH_TOKEN
   });
-
+  console.log("Credentials properly set.")
   // generate access token
   const accessToken = await oauth2Client.getAccessToken();
+  console.log('Access token:', accessToken.token);
 
   // configure nodemailer
   contactEmail = nodemailer.createTransport({
