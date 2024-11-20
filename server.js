@@ -6,18 +6,6 @@ const nodemailer = require("nodemailer");
 const path = require('path');
 const { google } = require('googleapis');
 
-// const axios = require('axios');
-// const checkGoogleOAuthStatus = async () => {
-//   try {
-//     const response = await axios.get('https://www.googleapis.com/oauth2/v3/tokeninfo');
-//     console.log('Google OAuth2 endpoint reachable:', response.data);
-//   } catch (error) {
-//     console.log('Network issue when accessing Google OAuth2:', error);
-//   }
-// };
-
-// checkGoogleOAuthStatus();
-
 // Visitor Counter 
 let visitCount = 0;
 let gitCount = 0;
@@ -69,20 +57,21 @@ const setupTransport = async () => {
       clientSecret: process.env.CLIENT_SECRET,
       refreshToken: process.env.REFRESH_TOKEN,
       accessToken: accessToken.token,
-      // pass: process.env.EMAIL_PASS
     },
   });
 
-  contactEmail.verify((error) => {
-    if (error) {
-      console.log(error);
-    } else {
-      console.log("Ready to Send");
-    }
-  });
-}
+  console.log("Email service initialized.");
 
-setupTransport().catch(console.error);
+  // contactEmail.verify((error) => {
+  //   if (error) {
+  //     console.log(error);
+  //   } else {
+  //     console.log("Ready to Send");
+  //   }
+  // });
+};
+
+setupTransport().catch((error) => console.error("Error setting up email service:", error));
 
 
 // Middleware to ensure contactEmail is initialized
