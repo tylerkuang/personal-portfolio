@@ -22,7 +22,6 @@ app.use("/", router);
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
-// console.log(process.env.EMAIL_PASS);
 
 let contactEmail;
 
@@ -67,14 +66,6 @@ const setupTransport = async () => {
   });
 
   console.log("Email service initialized.");
-
-  // contactEmail.verify((error) => {
-  //   if (error) {
-  //     console.log(error);
-  //   } else {
-  //     console.log("Ready to Send");
-  //   }
-  // });
 };
 
 setupTransport().catch((error) => console.error("Error setting up email service:", error));
