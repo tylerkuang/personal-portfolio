@@ -31,7 +31,7 @@ const setupTransport = async () => {
   const oauth2Client = new OAuth2(
     process.env.CLIENT_ID,
     process.env.CLIENT_SECRET,
-    "https://developers.google.com/oauthplayground"
+    "https://tylerkuang.com/oauth/callback"
   );
   console.log("Email:", process.env.EMAIL_USER ? 'Present' : 'Missing')
   console.log("CLIENT_ID:", process.env.CLIENT_ID ? 'Present' : 'Missing');
@@ -123,22 +123,15 @@ router.post('/api/track-visit', (req, res) => {
   res.sendStatus(200);
 });
 
-// // dummy route to handle oauth flow
-// app.get('/oauth/callback', (req, res) => {
-//   console.log('OAuth callback received at /oauth/callback');
+// dummy route to handle oauth flow
+app.get('/oauth/callback', (req, res) => {
+  console.log('OAuth callback received at /oauth/callback');
 
-//   res.send('OAuth callback received. You can now close this window.');
-// });
+  res.send('OAuth callback received. You can now close this window.');
+});
 
 app.get('*', (req, res) => {
   const indexPath = path.resolve(__dirname, './build', 'index.html');
   // console.log(`Serving index.html from ${indexPath}`);
   res.sendFile(indexPath);
 });
-
-// dummy route to handle oauth flow
-// app.get('/oauth/callback', (req, res) => {
-//   console.log('OAuth callback received at /oauth/callback');
-
-//   res.send('OAuth callback received. You can now close this window.');
-// });
