@@ -31,7 +31,7 @@ const setupTransport = async () => {
   const oauth2Client = new OAuth2(
     process.env.CLIENT_ID,
     process.env.CLIENT_SECRET,
-    "https://tylerkuang.com/oauth/callback"
+    "https://developers.google.com/oauthplayground"
   );
   console.log("Email:", process.env.EMAIL_USER ? 'Present' : 'Missing')
   console.log("CLIENT_ID:", process.env.CLIENT_ID ? 'Present' : 'Missing');
