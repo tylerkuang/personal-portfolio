@@ -137,8 +137,8 @@ app.get('*', (req, res) => {
 });
 
 // dummy route to handle oauth flow
-app.get('/oauth/callback', (req, res) => {
-  console.log('OAuth callback received at /oauth/callback');
+// app.get('/oauth/callback', (req, res) => {
+//   console.log('OAuth callback received at /oauth/callback');
 
-  res.send('OAuth callback received. You can now close this window.');
-});
+//   res.send('OAuth callback received. You can now close this window.');
+// });
