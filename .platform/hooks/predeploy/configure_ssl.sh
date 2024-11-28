@@ -1,4 +1,4 @@
-# #!/bin/bash
+#!/bin/bash
 # # Obtain SSL certificate
 # sudo certbot certonly --nginx -n --agree-tos --email tkuang5176@gmail.com -d tylerkuang.com -d www.tylerkuang.com
 
