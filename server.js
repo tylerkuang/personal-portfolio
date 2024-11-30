@@ -23,52 +23,20 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
 
-let contactEmail;
-
-const setupTransport = async () => {
-  const OAuth2 = google.auth.OAuth2;
-
-  const oauth2Client = new OAuth2(
-    process.env.CLIENT_ID,
-    process.env.CLIENT_SECRET,
-    "https://tylerkuang.com/oauth/callback"
-  );
-  console.log("Email:", process.env.EMAIL_USER ? 'Present' : 'Missing')
-  console.log("CLIENT_ID:", process.env.CLIENT_ID ? 'Present' : 'Missing');
-  console.log("CLIENT_SECRET:", process.env.CLIENT_SECRET ? 'Present' : 'Missing');
-  console.log("REFRESH_TOKEN:", process.env.REFRESH_TOKEN ? 'Present' : 'Missing');
-
-  // set the refresh token
-  oauth2Client.setCredentials({
-    refresh_token: process.env.REFRESH_TOKEN
-  });
-  console.log("Credentials properly set.")
-
-  // generate access token
-  let accessToken;
-  try {
-    accessToken = await oauth2Client.getAccessToken();
-  } catch (error) {
-    console.error("Access Token Error:", error.response?.data || error.message);
+const contactEmail = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS
+  },
+});
+contactEmail.verify((error) => {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Ready to Send");
   }
-  
-  // configure nodemailer
-  contactEmail = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      type: 'OAuth2',
-      user: process.env.EMAIL_USER,
-      clientId: process.env.CLIENT_ID,
-      clientSecret: process.env.CLIENT_SECRET,
-      refreshToken: process.env.REFRESH_TOKEN,
-      accessToken: accessToken.token,
-    },
-  });
-
-  console.log("Email service initialized.");
-};
-
-setupTransport().catch((error) => console.error("Error setting up email service:", error));
+});
 
 
 // Middleware to ensure contactEmail is initialized
@@ -98,7 +66,8 @@ router.post("/contact", ensureEmailServiceReady, (req, res) => {
   contactEmail.sendMail(mail, (error) => {
     if (error) {
       res.json(error);
-      console.log("Error sending message");
+      console.log("Error sending message:");
+      console.log(error)
     } else {
       res.json({ code: 200, status: "Message Sent" });
       console.log("Message sent!");
