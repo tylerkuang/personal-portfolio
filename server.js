@@ -5,6 +5,7 @@ const cors = require("cors");
 const nodemailer = require("nodemailer");
 const path = require('path');
 const { google } = require('googleapis');
+const sgMail = require('@sendgrid/mail');
 
 // Visitor Counter 
 let visitCount = 0;
@@ -23,56 +24,34 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
 
-const contactEmail = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS
-  },
-});
-contactEmail.verify((error) => {
-  if (error) {
-    console.log(error);
-  } else {
-    console.log("Ready to Send");
-  }
-});
+// set sendgrid api key
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-
-// Middleware to ensure contactEmail is initialized
-const ensureEmailServiceReady = (req, res, next) => {
-  if (!contactEmail) {
-    console.log("Email service is not ready yet");
-    return res.status(500).json({ error: "Email service is not initialized yet. Please try again later." });
-  }
-  next();
-};
+console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY ? 'Present' : 'Missing')
 
 // handle post requests for contact/message requests
-router.post("/contact", ensureEmailServiceReady, (req, res) => {
-  const name = req.body.firstName + " " + req.body.lastName;
-  const email = req.body.email;
-  const message = req.body.message;
-  const phone = req.body.phone;
-  const mail = {
-    from: name,
-    to: "tkuang5176@gmail.com",
-    subject: `Contact Form Submission from ${name}`,
-    html: `<p>Name: ${name}</p>
+router.post("/contact", (req, res) => {
+  const { firstName, lastName, email, message, phone } = req.body;
+  const msg = {
+    to: 'tkuang5176@gmail.com',
+    from: 'kuangty5@gmail.com',
+    subject: `Contact Form Submission from ${firstName} ${lastName}`,
+    html: `<p>Name: ${firstName} ${lastName}</p>
            <p>Email: ${email}</p>
            <p>Phone: ${phone}</p>
            <p>Message: ${message}</p>`,
-  };
-  contactEmail.sendMail(mail, (error) => {
-    if (error) {
-      res.json(error);
-      console.log("Error sending message:");
-      console.log(error)
-    } else {
+  }
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log('Message sent!');
       res.json({ code: 200, status: "Message Sent" });
-      console.log("Message sent!");
-    }
-  });
+    })
+    .catch((error) => {
+      console.log("Error occurred while sending email:")
+      console.error(error);
+      res.json(error);
+    })
 });
 
 // handle post requests for visitor tracking
@@ -90,13 +69,6 @@ router.post('/api/track-visit', (req, res) => {
   }
 
   res.sendStatus(200);
-});
-
-// dummy route to handle oauth flow
-app.get('/oauth/callback', (req, res) => {
-  console.log('OAuth callback received at /oauth/callback');
-
-  res.send('OAuth callback received. You can now close this window.');
 });
 
 app.get('*', (req, res) => {
