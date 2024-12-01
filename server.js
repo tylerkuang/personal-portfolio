@@ -24,16 +24,12 @@ const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
 console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
 
+console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY ? 'Present' : 'Missing')
+
 // set sendgrid api key
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY ? 'Present' : 'Missing')
-console.log('SENDGRID_API_KEY:', process.env.SENDGRID_API_KEY);
-console.log('SENDGRID_API_KEY length:', process.env.SENDGRID_API_KEY?.length);
-console.log('SENDGRID_API_KEY length:', process.env.SENDGRID_API_KEY.length);
-console.log('EMAIL_USER length:', process.env.EMAIL_USER?.length);
-console.log('EMAIL_PASS length:', process.env.EMAIL_PASS?.length);
-console.log('CLIENT_ID length:', process.env.CLIENT_ID?.length);
+console.log("Email service initialized successfully.");
 
 // handle post requests for contact/message requests
 router.post("/contact", (req, res) => {
