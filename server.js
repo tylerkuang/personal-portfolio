@@ -2,9 +2,9 @@ require('dotenv').config()
 const express = require("express");
 const router = express.Router();
 const cors = require("cors");
-const nodemailer = require("nodemailer");
+// const nodemailer = require("nodemailer");
 const path = require('path');
-const { google } = require('googleapis');
+// const { google } = require('googleapis');
 const sgMail = require('@sendgrid/mail');
 
 // Visitor Counter 
@@ -28,6 +28,8 @@ console.log(`listening to send emails to ${process.env.EMAIL_USER}...`);
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
 console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY ? 'Present' : 'Missing')
+console.log('SENDGRID_API_KEY:', process.env.SENDGRID_API_KEY);
+console.log('SENDGRID_API_KEY length:', process.env.SENDGRID_API_KEY?.length);
 
 // handle post requests for contact/message requests
 router.post("/contact", (req, res) => {
