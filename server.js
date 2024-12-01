@@ -30,6 +30,10 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 console.log("SENDGRID_API_KEY:", process.env.SENDGRID_API_KEY ? 'Present' : 'Missing')
 console.log('SENDGRID_API_KEY:', process.env.SENDGRID_API_KEY);
 console.log('SENDGRID_API_KEY length:', process.env.SENDGRID_API_KEY?.length);
+console.log('SENDGRID_API_KEY length:', process.env.SENDGRID_API_KEY.length);
+console.log('EMAIL_USER length:', process.env.EMAIL_USER?.length);
+console.log('EMAIL_PASS length:', process.env.EMAIL_PASS?.length);
+console.log('CLIENT_ID length:', process.env.CLIENT_ID?.length);
 
 // handle post requests for contact/message requests
 router.post("/contact", (req, res) => {
