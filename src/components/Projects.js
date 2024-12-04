@@ -47,7 +47,7 @@ export const Projects = () => {
       title: "Personal Website",
       description: "",
       languages: "Languages: Javascript",
-      frameworks: "Frameworks: React, Node.js",
+      frameworks: "Frameworks/Technologies: React, Node.js, AWS, SendGrid API",
       imgUrl: websiteImg,
     },
     {
@@ -144,7 +144,12 @@ export const Projects = () => {
               {({ isVisible }) =>
               <div className={isVisible ? "animate__animated animate__fadeIn": ""}>
                 <h2>Projects</h2>
-                <p>As a late bloomer to the field of Computer Science and Software Engineering, I don't have the same professional experience that many of my peers do. So instead, I've listed some of the projects I've worked on below demonstrating my technical aptitude and expertise in lieu of professional experience.</p>
+                <p>
+                  Beyond the coursework, I've honed my problem-solving skills through hands-on projects, from designing web applications to developing AI-driven solutions. These projects reflect not only my technical expertise, but also my ability to learn, adapt, and think creatively. Each project is a testament to the skills I've developed and the kind of challenges I thrive on solving. While I may not have extensive professional experience yet, I view every obstacle as an opportunity to learn and contribute, and I'm confident in my ability to deliver results.
+                </p>
+                <p>
+                  Looking ahead, I'm excited to join a team where I can apply my skills, continue to grow, and contribute to meaningful projects. My journey so far has taught me that grit, passion, and the willingness to embrace challenges are my greatest assets. I look forward to bringing those qualities to my future role and making a lasting impact. 
+                </p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
                     <Nav.Item>

@@ -36,24 +36,39 @@ export const Skills = () => {
                     <div className="col-12">
                         <div className="skill-bx wow zoomIn">
                             <h2>Skills/Proficiencies</h2>
-                            <p className="top">Making a late major switch to a difficult field, I had to be a quick and hungry learner. I would not have succeeded this transition had I not been able to quickly learn foreign concepts and technologies. I am confident that this intangible skill will similarly enable me to succeed in any unfamiliar environment going forward.</p>
-                            <p className="bottom">Below, I've listed some of the concepts and technologies I've become proficient in over the past couple years.</p>
+                            <p className="top">
+                                Making a late major switch to a more demanding field, I had to be a quick and hungry learner. The transition required intense focus, rapid adaption, and the ability to quickly master unfamiliar concepts. From learning the foundational principles of algorithms to tackling advanced topics like machine learning and natural language processing, every challenge was an opportunity to grow. My time as a college student has taught me resilience, adaptability, and a relentless work ethic—qualities I now bring to every new challenge before me. I'm confident that these traits will help me excel in any environment, no matter how unfamiliar.
+                            </p>
+                            <p className="bottom">
+                                I'm always eager to learn and experiment with new technologies. Technology's limitless potential for innovation and impact is the reason I became a Computer Science major in the first place—because I wanted help people and make a more significant personal impact. Whether it's enhancing user experiences through intuitive interfaces, streamlining operations with efficient algorithms, or leveraging AI to tackle global challenges, I want my work to make a difference.
+                            </p>
+                            <p>
+                                Below, I've listed some key competencies and technologies that will enable me to be successful in the field.
+                            </p>
                             <div className="grid-container">
-                                <div className="grid-item">
-                                    <img src={meter1} alt="Image" />
-                                    <h5>RESTful API Development</h5>
-                                </div>
                                 <div className="grid-item">
                                     <img src={meter1} alt="Image" />
                                     <h5>Git/Github for Version Control</h5>
                                 </div>
                                 <div className="grid-item">
                                     <img src={meter1} alt="Image" />
-                                    <h5>MySQL for Database Management</h5>
+                                    <h5>Docker for Containerization</h5>
                                 </div>
                                 <div className="grid-item">
                                     <img src={meter1} alt="Image" />
-                                    <h5>CI/CD Pipelines</h5>
+                                    <h5>CI/CD Pipelines (AWS CodePipeline)</h5>
+                                </div>
+                                <div className="grid-item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>AWS Management</h5>
+                                </div>
+                                <div className="grid-item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>RESTful API Development</h5>
+                                </div>
+                                <div className="grid-item">
+                                    <img src={meter1} alt="Image" />
+                                    <h5>Relational Database Management</h5>
                                 </div>
                                 <div className="grid-item">
                                     <img src={meter1} alt="Image" />

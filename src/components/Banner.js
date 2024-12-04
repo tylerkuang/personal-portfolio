@@ -50,8 +50,14 @@ export const Banner = () => {
                     <Col xs={12} md={6} xl={7}>
                         <span className="tagline">Welcome to my Portfolio</span>
                         <h1>{`Hi I'm Tyler,`}<br></br><span className="wrap">&nbsp;{text}</span></h1>
-                        <p>Hey there, I'm a recent graduate from the University of Southern California, where I majored in Computer Science and Business Administration while minoring in Artificial Intelligence Applications. I love building things, so I built this portfolio to showcase a little more about who I am and how I got here. </p>
-                        <p>I began my first few years in college solely as a Business major. By my Junior year, I realized this wasn't something I was passionate about. I wanted to do something more technical, where my personal impact could be better felt and measured. I tried out coding, fell in love with it, and haven't looked back.</p>
+                        <p>
+                            Hello and welcome! I'm a recent graduate of the University of Southern California, where I earned a combined degree in Computer Science and Business Administration with a minor in Artificial Intelligence Applications. I'm passionate about solving challenging problems and creating impactful solutions, and I built this portfolio to help shed some insights on the person behind the code, share my journey, and showcase my work and technical skills. I also simply love to build new things!
+                        </p>
+                        <p>
+                            I didn't begin my academic journey in Computer Science. My first few years in college I was solely a Business major, where I gained valuable insights into strategy, leadership, communication, teamwork, and organizational dynamics. However, I always felt a pull towards something more tangible and technical, where I could directly create solutions and see my personal impact. In my Junior year, I began exploring coding and fell in love with it—with coding, I felt like I unlocked the ability to bring ideas to life, solve meaningful problems, and much more.
+                        </p>
+                        {/* <p>Hey there, I'm a recent graduate from the University of Southern California, where I majored in Computer Science and Business Administration while minoring in Artificial Intelligence Applications. I love building things, so I built this portfolio to showcase a little more about who I am and how I got here. </p>
+                        <p>I began my first few years in college solely as a Business major. By my Junior year, I realized this wasn't something I was passionate about. I wanted to do something more technical, where my personal impact could be better felt and measured. I tried out coding, fell in love with it, and haven't looked back.</p> */}
                         <button onClick={() => window.location.href='#connect'}>Let's connect <ArrowRightCircle size={25} /></button>
                     </Col>
                     <Col xs={12} md={6} xl={5}>
