@@ -1,5 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
+import './Navbar.css';
+import './Banner.css';
+import './Skills.css';
+import './Projects.css';
+import './Contact.css';
+import './Footer.css';
 import { NavBar } from './components/NavBar';
 import { Banner } from './components/Banner';
 import { Skills } from './components/Skills';
