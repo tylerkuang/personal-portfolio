@@ -16,6 +16,10 @@ import stockImg from "../assets/img/stock.jpg";
 import bstImg from "../assets/img/bst-edit.png";
 import skincareImg from "../assets/img/skincare.png";
 import colorSharp2 from "../assets/img/color-sharp2.png";
+import chatbotImg from "../assets/img/chatbot.jpg";
+import anomalyImg from "../assets/img/anomaly.jpg";
+import colorizationImg from "../assets/img/colorization.jpg";
+import ganImg from "../assets/img/GAN.png";
 import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 
@@ -51,6 +55,13 @@ export const Projects = () => {
       imgUrl: websiteImg,
     },
     {
+      title: "Healthcare Chatbot with Vector Database and RAG",
+      description: "",
+      languages: "Languages: Python",
+      frameworks: "Frameworks/Technologies: PyTorch, Keras, Sci-Kit Learn, ChatGPT API",
+      imgUrl: chatbotImg,
+    },
+    {
       title: "Skincare Product Finder",
       description: "",
       languages: "Languages: Python, Javascript",
@@ -60,36 +71,36 @@ export const Projects = () => {
   ];
 
   const ml_projects = [
+    // {
+    //   title: "Fine-Tune GPT",
+    //   description: "",
+    //   languages: "Languages: Python",
+    //   frameworks: "Frameworks/Technologies: ChatGPT API",
+    //   imgUrl: gptImg,
+    // },
+    // {
+    //   title: "Retrieval Augmented Generation",
+    //   description: "",
+    //   languages: "Languages: Python",
+    //   frameworks: "Frameworks/Technologies: PyTorch, Keras, Sci-Kit Learn, ChatGPT API",
+    //   imgUrl: ragImg,
+    // },
+    // {
+    //   title: "Intelligent Semantic Search System",
+    //   description: "",
+    //   languages: "Languages: Python",
+    //   frameworks: "Frameworks: Keras, Sci-Kit Learn",
+    //   imgUrl: vectordbImg,
+    // },
     {
-      title: "Fine-Tune GPT",
-      description: "",
-      languages: "Languages: Python",
-      frameworks: "Frameworks/Technologies: ChatGPT API",
-      imgUrl: gptImg,
-    },
-    {
-      title: "Retrieval Augmented Generation",
-      description: "",
-      languages: "Languages: Python",
-      frameworks: "Frameworks/Technologies: PyTorch, Keras, Sci-Kit Learn, ChatGPT API",
-      imgUrl: ragImg,
-    },
-    {
-      title: "Intelligent Semantic Search System",
-      description: "",
-      languages: "Languages: Python",
-      frameworks: "Frameworks: Keras, Sci-Kit Learn",
-      imgUrl: vectordbImg,
-    },
-    {
-      title: "Natural Language Processing for Text Summarization with T5",
+      title: "Natural Language Processing for Text Summarization",
       description: "",
       languages: "Languages: Python",
       frameworks: "Frameworks: Tensorflow, PyTorch",
       imgUrl: textSummImg,
     },
     {
-      title: "Advanced Text Generation using LSTM & Keras",
+      title: "Deep Learning for Text Generation",
       description: "",
       languages: "Languages: Python",
       frameworks: "Frameworks: Keras",
@@ -101,6 +112,27 @@ export const Projects = () => {
       languages: "Languages: Python",
       frameworks: "Frameworks: Sci-Kit Learn",
       imgUrl: sentImg,
+    },
+    {
+      title: "Deep Learning for Anomaly Detection",
+      description: "",
+      languages: "Languages: Python",
+      frameworks: "Frameworks: Keras",
+      imgUrl: anomalyImg,
+    },
+    {
+      title: "Deep Learning for Image Colorization",
+      description: "",
+      languages: "Languages: Python",
+      frameworks: "Frameworks: Keras",
+      imgUrl: colorizationImg,
+    },
+    {
+      title: "Generative Adversarial Network (GAN) for Image Generation",
+      description: "",
+      languages: "Languages: Python",
+      frameworks: "Frameworks: Keras",
+      imgUrl: ganImg,
     },
   ];
 
@@ -120,19 +152,19 @@ export const Projects = () => {
       imgUrl: sepImg,
     },
     {
-        title: "Mock Stock Market Day Exchange",
-        description: "",
-        languages: "Languages: Java",
-        frameworks: "Technologies: Stock API",
-        imgUrl: stockImg,
-      },
-      {
-        title: "Binary Search Tree Map Implementation",
-        description: "",
-        languages: "Languages: C++",
-        frameworks: "",
-        imgUrl: bstImg,
-      },
+      title: "Mock Stock Market Day Exchange",
+      description: "",
+      languages: "Languages: Java",
+      frameworks: "Technologies: Stock API",
+      imgUrl: stockImg,
+    },
+    {
+      title: "Binary Search Tree Map Implementation",
+      description: "",
+      languages: "Languages: C++",
+      frameworks: "",
+      imgUrl: bstImg,
+    },
   ];
 
   return (
@@ -148,7 +180,7 @@ export const Projects = () => {
                   Beyond the coursework, I've honed my problem-solving skills through hands-on projects, from designing web applications to developing AI-driven solutions. These projects reflect not only my technical expertise, but also my ability to learn, adapt, and think creatively. Each project is a testament to the skills I've developed and the kind of challenges I thrive on solving. While I may not have extensive professional experience yet, I view every obstacle as an opportunity to learn and contribute, and I'm confident in my ability to deliver results.
                 </p>
                 <p>
-                  Looking ahead, I'm excited to join a team where I can apply my skills, continue to grow, and contribute to meaningful projects. My journey so far has taught me that grit, passion, and the willingness to embrace challenges are my greatest assets. I look forward to bringing those qualities to my future role and making a lasting impact. 
+                  Looking ahead, I'm excited to join a team where I can apply my skills, continue to grow, and contribute to meaningful projects. My journey so far has taught me that grit, passion, and the willingness to embrace challenges are my greatest assets, qualities that I will bring to my future role and will help me make a lasting impact!
                 </p>
                 <Tab.Container id="projects-tabs" defaultActiveKey="first">
                   <Nav variant="pills" className="nav-pills mb-5 justify-content-center align-items-center" id="pills-tab">
